@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.4
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movement_mouse", "Movement_mouse\Movement_mouse.csproj", "{6F871FC3-0CB9-4AAB-9E8C-3BF767C830EB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6F871FC3-0CB9-4AAB-9E8C-3BF767C830EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F871FC3-0CB9-4AAB-9E8C-3BF767C830EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F871FC3-0CB9-4AAB-9E8C-3BF767C830EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F871FC3-0CB9-4AAB-9E8C-3BF767C830EB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
