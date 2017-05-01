@@ -41,179 +41,7 @@ namespace GlyphTest
             public string Text9 { get; set; }
         }
 
-        private string GetOrdered(string input)
-        {
-            if (input.Length == 0)
-                return "";
-
-            string sentence = input;
-            var glyphChars = new List<char>();
-
-            Stack<char> asciiCharacterStack = new Stack<char>();
-
-            //NBidi.UnicodeGeneralCategory.
-
-            foreach (var word in sentence.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries))
-            {
-                //NBidi.BidiCharacterType.
-
-                var preCharacterJoiningType = ArabicShapeJoiningType.U;
-
-                for (int i = 0; i < word.Length; i++)
-                {
-                    var currentCharacter = word[i];
-                    if (currentCharacter < 128)
-                    {
-                       // asciiCharacterStack.Push(currentCharacter);
-                        preCharacterJoiningType = ArabicShapeJoiningType.U;
-                    }
-                    else
-                    {
-                        //while (asciiCharacterStack.Count > 0)
-                        //{
-                        //    glyphChars.Add(asciiCharacterStack.Pop());
-                        //}
-                        var currentCharacterJoiningType = UnicodeArabicShapingResolver.GetArabicShapeJoiningType(currentCharacter);
-
-                        if (preCharacterJoiningType == ArabicShapeJoiningType.D || preCharacterJoiningType == ArabicShapeJoiningType.L)
-                        {
-                            if (i == word.Length - 1)
-                            {
-                                glyphChars.Add(UnicodeArabicShapingResolver.GetArabicCharacterByLetterForm(currentCharacter, LetterForm.Final));
-                            }
-                            else
-                            {
-                                var nextCharacter = word[i + 1];
-                                if ((nextCharacter > 128) && (currentCharacterJoiningType == ArabicShapeJoiningType.D || currentCharacterJoiningType == ArabicShapeJoiningType.L))
-                                    glyphChars.Add(UnicodeArabicShapingResolver.GetArabicCharacterByLetterForm(currentCharacter, LetterForm.Medial));
-                                else
-                                    glyphChars.Add(UnicodeArabicShapingResolver.GetArabicCharacterByLetterForm(currentCharacter, LetterForm.Final));
-                            }
-                        }
-                        else
-                        {
-                            if (i == word.Length - 1)
-                            {
-                                glyphChars.Add(UnicodeArabicShapingResolver.GetArabicCharacterByLetterForm(currentCharacter, LetterForm.Isolated));
-                            }
-                            else
-                            {
-                                if (currentCharacterJoiningType == ArabicShapeJoiningType.D || currentCharacterJoiningType == ArabicShapeJoiningType.L)
-                                    glyphChars.Add(UnicodeArabicShapingResolver.GetArabicCharacterByLetterForm(currentCharacter, LetterForm.Initial));
-                                else
-                                    glyphChars.Add(UnicodeArabicShapingResolver.GetArabicCharacterByLetterForm(currentCharacter, LetterForm.Initial));
-                            }
-                        }
-
-                        preCharacterJoiningType = currentCharacterJoiningType;
-                    }
-                }
-
-                //if (asciiCharacterStack.Count > 0)
-                //    asciiCharacterStack.Push(' ');
-
-                glyphChars.Add(' ');
-            }
-
-            //while (asciiCharacterStack.Count > 0)
-            //{
-            //    glyphChars.Add(asciiCharacterStack.Pop());
-            //}
-
-            //Stack<string> stackedWords = new Stack<string>();
-            //var thisLineWords = "";
-            //var lastSpaceIndex = 0;
-            //var lineWidth = HtmlPanel.ActualWidth;
-            //var fontSize = 11;
-
-            //HtmlPanel.FontFamily = new FontFamily("tahoma");
-
-            //var currentLineWidth = 0d;
-            //var tempWord = "";
-
-            //GlyphTypeface glyphTypeface = new GlyphTypeface(new Uri($@"C:\Windows\Fonts\segoeui.ttf"));
-
-            //if (glyphTypeface != null)
-            //{
-            //    int i = 0;
-
-            //    while (i < glyphChars.Count && glyphChars[i] == ' ')
-            //        i++;
-
-            //    lastSpaceIndex = i - 1;
-
-            //    while (i < glyphChars.Count)
-            //    {
-            //        for (; i < glyphChars.Count; i++)
-            //        {
-            //            ushort glyph;
-            //            if (!glyphTypeface.CharacterToGlyphMap.TryGetValue(glyphChars[i], out glyph))
-            //                break;
-
-            //            currentLineWidth += 96d / 72d * fontSize * glyphTypeface.AdvanceWidths[glyph];
-
-            //            if (glyphChars[i] == ' ')
-            //            {
-            //                if (!string.IsNullOrEmpty(tempWord))
-            //                    stackedWords.Push(tempWord);
-
-            //                tempWord = "";
-            //                lastSpaceIndex = i;
-            //            }
-            //            else
-            //            {
-            //                if (currentLineWidth > lineWidth)
-            //                {
-            //                    i = lastSpaceIndex + 1;
-            //                    tempWord = "";
-            //                    break;
-            //                }
-            //                else
-            //                {
-            //                    tempWord += glyphChars[i];
-            //                }
-            //            }
-            //        }
-
-            //        if (stackedWords.Count() > 0)
-            //        {
-            //            while (stackedWords.Count() > 0)
-            //            {
-            //                foreach (var ch in stackedWords.Pop().Reverse())
-            //                {
-            //                    thisLineWords += ch;
-            //                }
-            //                thisLineWords += " ";
-            //            }
-            //        }
-            //        if (lastSpaceIndex + tempWord.Length == glyphChars.Count - 1)
-            //            foreach (var ch in tempWord.Reverse())
-            //            {
-            //                thisLineWords += ch;
-            //            }
-
-            //        currentLineWidth = 0;
-            //    }
-            //}
-
-            //var finalOutput = "";
-
-            //foreach (var item in thisLineWords)
-            //{
-            //    finalOutput += item;
-            //}
-
-            var finalOutput = "";
-
-            //foreach (var ch in glyphChars)
-            //{
-            //    finalOutput += ch.ToString();
-            //}
-
-            finalOutput = new string(glyphChars.ToArray());
-
-            return finalOutput;
-        }
+        
 
         private void Button_Click()
         {
@@ -226,9 +54,7 @@ namespace GlyphTest
             {
                 var dataClass = new DataClass();
 
-                //dataClass.Text3 = Reform($"در این قسمت یک. متن طولانی قرار داده شده است a + b = x");
-                //dataClass.Text = $"<p>بابا آمد به خانه English 123 B و رفت</p>";
-                //dataClass.Text = $"<p dir=\"rtl\">بابا به خانه home Water رفت و آمد می کند</p>";
+               
 
                 dataClass.Text = Reform($"<b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjاا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا");
                 dataClass.Text1 = Reform($"<b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا");
@@ -240,17 +66,7 @@ namespace GlyphTest
                 dataClass.Text7 = Reform($"<b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا");
                 dataClass.Text8 = Reform($"<b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا");
                 dataClass.Text9 = Reform($"<b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا");
-
-                //dataClass.Text1 = Reform($"نوید naببjmabadi نجم آبffادی najm abadi <b> نو </b>");
-                //dataClass.Text2 = Reform($"نوید naببjmabadi نجم آبffادی najm abadi <b> نو </b>");
-                //dataClass.Text3 = Reform($"this tex hfdksjhkdsh ابتنیابنست  یباسین I<b> تالیبتسلتبلسی   تبلسیتلسیبت </b> تانیباسنیتبا11");
-                //dataClass.Text4 = Reform($"نوید najmabadi نجم آبادی najm abadi </b> نو <b>");
-                //dataClass.Text5 = Reform($"نوید naببjmabadi نجم آبffادی najm abadi </b> نو <b>");
-                //dataClass.Text6 = Reform($"this tex hfdksjhkdsh ابتنیابنستیباسین I<b> تالیبتسلتبلس  یتبلسیتلسیبت </b> تانیباسنیتبا11");
-                //dataClass.Text7 = Reform($"this tex hfdksjhkdsh ابتنیابن  ستیباسین I<b> تالیبتسلتبلسیتبل    سیتلسیبت </b> تانیباسنیتبا11");
-                //dataClass.Text8 = Reform($"this tex hfdksjhkdsh ابتنیابن  ستیباسین I<b> تالیبتسلتبل   سیتبلسیتلسیبت </b> تانیباسنیتبا11");
-                //dataClass.Text9 = Reform($"this tex hfdksjhkdsh ابتنیابنستیباسین I<b> تالیبتسلتبلسیتبلسیتلسیبت </b> تانیباسنیتبا11");
-
+                
                 dataList.Add(dataClass);
             }
 
@@ -413,11 +229,11 @@ namespace GlyphTest
             List<string> OutPutWord = new List<string>();
             for (int j = 0; j < wordList.Count; j++)
             {
-                if (wordList[j] == " ")
-                {
-                    OutPutWord.Add(" ");
-                    continue;
-                }
+                //if (wordList[j] == " ")
+                //{
+                //    OutPutWord.Add(" ");
+                //    continue;
+                //}
                 Word = wordList[j];
                 if (j != wordList.Count - 1)
                 {
@@ -435,7 +251,7 @@ namespace GlyphTest
 
                 else
                 {
-                    if (count == 0 && !(nextWord[0] < 128 && nextWord[0]!=32) && j!= (wordList.Count - 1))
+                    if (count == 0 && !(nextWord[0] < 128 ) && j!= (wordList.Count - 1))
                     {
                         index = j; 
                     }
