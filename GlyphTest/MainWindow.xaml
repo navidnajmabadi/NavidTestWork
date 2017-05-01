@@ -87,6 +87,6 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <Button Height="25" VerticalAlignment="Bottom" Click="Button_Click" Content="LOAD"/>
+        <!--<Button Height="25" VerticalAlignment="Bottom" Click="Button_Click" Content="LOAD"/>-->
     </Grid>
 </Window>

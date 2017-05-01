@@ -25,6 +25,7 @@ namespace GlyphTest
         public MainWindow()
         {
             InitializeComponent();
+            Button_Click();
         }
         public class DataClass
         {
@@ -214,7 +215,7 @@ namespace GlyphTest
             return finalOutput;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click()
         {
             List<DataClass> dataList = new List<DataClass>();
                  Random r = new Random();
@@ -229,16 +230,26 @@ namespace GlyphTest
                 //dataClass.Text = $"<p>بابا آمد به خانه English 123 B و رفت</p>";
                 //dataClass.Text = $"<p dir=\"rtl\">بابا به خانه home Water رفت و آمد می کند</p>";
 
-                dataClass.Text = Reform($"this tex hfdksjhkdsh ابتنیا   بنستیباسین I<b> تالیبتسلتبل   سیتبلسیتلسیبت </b> تانیباسنیتبا11");
-                dataClass.Text1 = Reform($"this tex hfdksjhkdsh ابتنیابنستیباسین I<b> تالیبتسلتبل  سیتبلسیتلسیبت </b> تانیباسنیتبا11");
-                dataClass.Text2 = Reform($"this tex hfdksjhkdsh ابتنیابن    ستیباسین I<b> تالیبتسلتبلسیتب    لسیتلسیبت </b> تانیباسنیتبا11");
-                dataClass.Text3 = Reform($"this tex hfdksjhkdsh ابتنیابنست  یباسین I<b> تالیبتسلتبلسی   تبلسیتلسیبت </b> تانیباسنیتبا11");
-                dataClass.Text4 = Reform($"this tex hfdksjhkdsh ابتنیابنستیباسین I<b> تالیبتسلتبلس   یتبلسیتلسیبت </b> تانیباسنیتبا11");
-                dataClass.Text5 = Reform($"this tex hfdksjhkdsh ابتنیابنستیباسین I<b> تالیبتسلتبلسیتبلسیتلسیبت </b> تانیباسنیتبا11");
-                dataClass.Text6 = Reform($"this tex hfdksjhkdsh ابتنیابنستیباسین I<b> تالیبتسلتبلس  یتبلسیتلسیبت </b> تانیباسنیتبا11");
-                dataClass.Text7 = Reform($"this tex hfdksjhkdsh ابتنیابن  ستیباسین I<b> تالیبتسلتبلسیتبل    سیتلسیبت </b> تانیباسنیتبا11");
-                dataClass.Text8 = Reform($"this tex hfdksjhkdsh ابتنیابن  ستیباسین I<b> تالیبتسلتبل   سیتبلسیتلسیبت </b> تانیباسنیتبا11");
-                dataClass.Text9 = Reform($"this tex hfdksjhkdsh ابتنیابنستیباسین I<b> تالیبتسلتبلسیتبلسیتلسیبت </b> تانیباسنیتبا11");
+                dataClass.Text = Reform($"<b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjاا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا");
+                dataClass.Text1 = Reform($"<b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا");
+                dataClass.Text2 = Reform($"<b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا");
+                dataClass.Text3 = Reform($"<b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا");
+                dataClass.Text4 = Reform($"<b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا");
+                dataClass.Text5 = Reform($"<b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا");
+                dataClass.Text6 = Reform($"<b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا");
+                dataClass.Text7 = Reform($"<b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا");
+                dataClass.Text8 = Reform($"<b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا");
+                dataClass.Text9 = Reform($"<b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا <b>فارxyسی</b>متن کاملا tلtt eee  تکست rrr جدjjا");
+
+                //dataClass.Text1 = Reform($"نوید naببjmabadi نجم آبffادی najm abadi <b> نو </b>");
+                //dataClass.Text2 = Reform($"نوید naببjmabadi نجم آبffادی najm abadi <b> نو </b>");
+                //dataClass.Text3 = Reform($"this tex hfdksjhkdsh ابتنیابنست  یباسین I<b> تالیبتسلتبلسی   تبلسیتلسیبت </b> تانیباسنیتبا11");
+                //dataClass.Text4 = Reform($"نوید najmabadi نجم آبادی najm abadi </b> نو <b>");
+                //dataClass.Text5 = Reform($"نوید naببjmabadi نجم آبffادی najm abadi </b> نو <b>");
+                //dataClass.Text6 = Reform($"this tex hfdksjhkdsh ابتنیابنستیباسین I<b> تالیبتسلتبلس  یتبلسیتلسیبت </b> تانیباسنیتبا11");
+                //dataClass.Text7 = Reform($"this tex hfdksjhkdsh ابتنیابن  ستیباسین I<b> تالیبتسلتبلسیتبل    سیتلسیبت </b> تانیباسنیتبا11");
+                //dataClass.Text8 = Reform($"this tex hfdksjhkdsh ابتنیابن  ستیباسین I<b> تالیبتسلتبل   سیتبلسیتلسیبت </b> تانیباسنیتبا11");
+                //dataClass.Text9 = Reform($"this tex hfdksjhkdsh ابتنیابنستیباسین I<b> تالیبتسلتبلسیتبلسیتلسیبت </b> تانیباسنیتبا11");
 
                 dataList.Add(dataClass);
             }
@@ -250,7 +261,7 @@ namespace GlyphTest
 
             var d2 = DateTime.Now;
 
-            MessageBox.Show(d2.Subtract(d1).TotalMilliseconds+"");
+           MessageBox.Show(d2.Subtract(d1).TotalMilliseconds+"");
 
         }
 
@@ -275,22 +286,20 @@ namespace GlyphTest
             List<char> persianChar =null;
             List<char> englishChar = null;
             var wordList = new List<string>();
+            var wordListRead = new List<string>();
             // استک زیر برای حروف انگلیسی استفاده می شود؛ به این ترتیب که حروف انگلیسی را در پشته میریزیم تا زمانی که یک حرف فارسی پیدا شود؛ به محض پیدا شدن حرف فارسی، تمامی حروف موجود در پشته را 
             Stack<char> asciiCharacterStack = new Stack<char>();
-            
+
             // به ازای تک تک کلمات، فرآیند زیر را تکرار می کنیم
             foreach (var word in sentence.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries))
             {
+                wordListRead.Add(word);
                 var firstCharacter = word[0];
-                //if (firstCharacter<128)
-                //    wordList.Add(word);
                 persianChar = new List<char>();
                 englishChar = new List<char>();
                 // ابتدا چون حرفی از قبل وجود نداشته، چسبندگی حرف قبلی به حرف جاری را غیر چسبنده در نظر می گیریم
                 // U = Non Joining
                 var preCharacterJoiningType = ArabicShapeJoiningType.U;
-                //if (word == "<b>" || word == "</b>")
-                //    wordList.Add(word);
                 //  حال به ازای تک تک حروف عملیات زیر را دنبال می کنیم
                 for (i = 0; i < word.Length; i++)
                 {
@@ -300,9 +309,13 @@ namespace GlyphTest
                     // در صورتی که کد اسکی حرف از 127 بزرگتر باشد یعنی حرف غیر انگلیسی است؛ در غیر این صورت شرط درست است و وارد شرط می شویم
                     if (currentCharacter < 128)
                     {
-                        
-                        // چون حرف انگلیسی بوده، آن را در پشته می ریزیم
-                        asciiCharacterStack.Push(currentCharacter);
+                        if (persianChar.Count != 0)
+                        {
+                            persianChar.Reverse();
+                            string persianWord = new string(persianChar.ToArray());
+                            wordList.Add(persianWord);
+                            persianChar.Clear();
+                        }
                         englishChar.Add(currentCharacter);
                         // و چون حرف انگلیسی بوده، وضعیت چسبندگی غیر چسبنده خواهد بود
                         preCharacterJoiningType = ArabicShapeJoiningType.U;
@@ -310,18 +323,12 @@ namespace GlyphTest
                     // در صورتی که حرف غیر انگلیسی باشد، وارد دستورات زیر می شویم
                     else
                     {
-                                                // ابتدا پشته حروف انگلیسی را خالی می کنیم
-                        while (asciiCharacterStack.Count > 0)
+                        if (englishChar.Count != 0)
                         {
-                            //var inlineEnglisChar = new List<char>();
-                            //char stackchar = asciiCharacterStack.Pop();
-           
-                            //inlineEnglisChar.Add(asciiCharacterStack.Pop());
-                            //inlineEnglisChar.Reverse();
-                            //string inlineEnglishWord = new string(inlineEnglisChar.ToArray());
-                            //wordList.Add(inlineEnglishWord);
-                            
-                            glyphChars.Add(asciiCharacterStack.Pop());
+                            //englishChar.Reverse();
+                            string englishWord = new string(englishChar.ToArray());
+                            wordList.Add(englishWord);
+                            englishChar.Clear();
                         }
 
                         // پس از آن وضعیت چسبندگی حرف جاری را مشخص می کنیم
@@ -332,11 +339,8 @@ namespace GlyphTest
                         {
                             // بررسی می کنیم که آیا این حرف، آخرین حرف کلمه است ، در صورتی که بود، وارد شرط زیر می شویم
                             if (i == word.Length - 1)
-                            {
                                 // حرف جاری را به صورت حرف پایانی در نظر می گیریم
-                                glyphChars.Add(UnicodeArabicShapingResolver.GetArabicCharacterByLetterForm(currentCharacter, LetterForm.Final));
                                 persianChar.Add(UnicodeArabicShapingResolver.GetArabicCharacterByLetterForm(currentCharacter, LetterForm.Final));
-                            }
                             // در صورتی که آخرین حرف کلمه نبودیم
                             else
                             {
@@ -344,18 +348,11 @@ namespace GlyphTest
                                 var nextCharacter = word[i + 1];
                                 // در صورتی که حرف بعدی حرف غیر انگلیسی بود و همچنین حرف جاری به بعدی می چسبید، کاراکتر جاری را به صورت حرف وسط در نظر می گیریم
                                 if ((nextCharacter > 128) && (currentCharacterJoiningType == ArabicShapeJoiningType.D || currentCharacterJoiningType == ArabicShapeJoiningType.L))
-                                {
-                                    glyphChars.Add(UnicodeArabicShapingResolver.GetArabicCharacterByLetterForm(currentCharacter, LetterForm.Medial));
                                     persianChar.Add(UnicodeArabicShapingResolver.GetArabicCharacterByLetterForm(currentCharacter, LetterForm.Medial));
-                                }
-
                                 // در غیر این صورت، کاراکتر جاری را به صورت حالت پایانی در نظر می گیریم
                                 else
-                                {
-                                    glyphChars.Add(UnicodeArabicShapingResolver.GetArabicCharacterByLetterForm(currentCharacter, LetterForm.Final));
                                     persianChar.Add(UnicodeArabicShapingResolver.GetArabicCharacterByLetterForm(currentCharacter, LetterForm.Final));
-                                }
-                                    
+
                             }
                         }
                         // قسمت پایین مربوط به زمانی است که حرف قبلی به حرف بعدی نمی چسبید
@@ -363,13 +360,9 @@ namespace GlyphTest
                         {
                             // اگر حرف آخر بودیم
                             if (i == word.Length - 1)
-                            {
-                                
                                 // کاراکتر را به صورت غیرچسبان آخر در نظر می گیریم
-                                glyphChars.Add(UnicodeArabicShapingResolver.GetArabicCharacterByLetterForm(currentCharacter, LetterForm.Isolated));
                                 persianChar.Add(UnicodeArabicShapingResolver.GetArabicCharacterByLetterForm(currentCharacter, LetterForm.Isolated));
 
-                            }
                             // اگر حرف آخر نبودیم
                             else
                             {
@@ -377,97 +370,110 @@ namespace GlyphTest
                                 var nextCharacter = word[i + 1];
                                 // در صورتی که حرف بعدی حرف غیر انگلیسی بود و همچنین حرف جاری به بعدی می چسبید، کاراکتر جاری را به صورت حرف آغازین در نظر می گیریم
                                 if ((nextCharacter > 128) && (currentCharacterJoiningType == ArabicShapeJoiningType.D || currentCharacterJoiningType == ArabicShapeJoiningType.L))
-                                {
-                                    glyphChars.Add(UnicodeArabicShapingResolver.GetArabicCharacterByLetterForm(currentCharacter, LetterForm.Initial));
                                     persianChar.Add(UnicodeArabicShapingResolver.GetArabicCharacterByLetterForm(currentCharacter, LetterForm.Initial));
-                                }
-                                    
+
                                 // در غیر این صورت، کاراکتر جاری را به صورت غیرچسبان آخر در نظر می گیریم
                                 else
-                                {
-                                    glyphChars.Add(UnicodeArabicShapingResolver.GetArabicCharacterByLetterForm(currentCharacter, LetterForm.Isolated));
                                     persianChar.Add(UnicodeArabicShapingResolver.GetArabicCharacterByLetterForm(currentCharacter, LetterForm.Isolated));
-                                }
-                                    
+
                             }
                         }
 
                         // از آنجایی که کاراکتر جاری، در اجرای بعدی و به ازای کاراکتر بعدی، کاراکتر قبلی محسوب می شود، حالات چسبندگی کاراکتر قبلی را مساوی با حالت چسبندگی همین کاراکتر در نظر می گیریم
                         preCharacterJoiningType = currentCharacterJoiningType;
                     }
-                    
+
                 }
-                if (englishChar.Count!=0)
+            
+                if (englishChar.Count != 0)
                 {
-                    
+                   // englishChar.Reverse();
                     string englishWord = new string(englishChar.ToArray());
                     wordList.Add(englishWord);
-                    wordList.Add(" ");
                 }
 
                 if (persianChar.Count != 0)
                 {
                     persianChar.Reverse();
-                    string persianWord= new string(persianChar.ToArray());
+                    string persianWord = new string(persianChar.ToArray());
                     wordList.Add(persianWord);
-                    wordList.Add(" ");
                 }
-            
-
-                // چون کلمه به پایان رسیده است، باید یک فاصله به پشته اضافه کنیم، چرا که ممکن است این کلمه کاملا انگلیسی بوده و در پشته قرار گرفته باشد
-                if (asciiCharacterStack.Count > 0)
-                {
-                    asciiCharacterStack.Push(' ');
-                    // این پشته نباید خالی شود ، چرا که در این صورت ترتیب کلمات انگلیسی به هم می خورد
-                    //while (asciiCharacterStack.Count > 0)
-                    //{
-                    //    glyphChars.Add(asciiCharacterStack.Pop());
-                    //}
-                }
-                // در غیر این صورت، تنها یک فاصله به لیست خروجی اضافه می کنیم
-                else
-                    glyphChars.Add(' ');
+                wordList.Add(" ");
             }
 
-            // حالا که به آخر متن رسیده ایم، باید پشته را خالی کنیم، چون ممکن است شامل کلمات انگلیسی باشد
-            while (asciiCharacterStack.Count > 0)
+
+
+
+
+            string Word;
+            string nextWord =null;
+            int count = 0;
+            int index = 0;
+            List<string> Temp = new List<string>();
+            List<string> OutPutWord = new List<string>();
+            for (int j = 0; j < wordList.Count; j++)
             {
-                glyphChars.Add(asciiCharacterStack.Pop());
+                if (wordList[j] == " ")
+                {
+                    OutPutWord.Add(" ");
+                    continue;
+                }
+                Word = wordList[j];
+                if (j != wordList.Count - 1)
+                {
+                    nextWord = wordList[j + 1];
+                   
+                }
+                   
+                
+                if (Word[0] < 128 )
+                {
+                    count = 0;
+                    OutPutWord.Add(wordList[j]);
+                    
+                }
+
+                else
+                {
+                    if (count == 0 && !(nextWord[0] < 128 && nextWord[0]!=32) && j!= (wordList.Count - 1))
+                    {
+                        index = j; 
+                    }
+                    else if(count==0)
+                    {
+                        OutPutWord.Add(wordList[j]);    
+                    }
+                    count++;
+
+                }
+                if (count > 1)
+                {
+                    for (int k = index; k < (count+index) ; k++)
+                        Temp.Add(wordList[k]);
+                    Temp.Reverse();
+                    for (int s = 0; s<Temp.Count ; s++)
+                    {
+                        OutPutWord.Add(Temp[s]);
+                    }
+                        
+                    Temp.Clear();
+                }
             }
 
-            //  آرایه را برعکس می کند
-           
-            glyphChars.Reverse();
-
-         // input = new string(glyphChars.ToArray());
-          input  = String.Join(String.Empty, wordList.ToArray());
-            //bool shouldInsertStartTag = true;
-
-
-            //input = new string(input.Reverse().ToArray());
-
-            //foreach (var item in startOrEndIndexes)
-            //{
-            //    var tagToInsert = shouldInsertStartTag ? ">b/<" : ">b<";
-            //    input = input.Insert(item, tagToInsert);
-
-            //    shouldInsertStartTag = !shouldInsertStartTag;
-            //}
-            //input = new string(input.Reverse().ToArray());
-
+            input  = String.Join(String.Empty, OutPutWord.ToArray());
 
             // اگر ورودی ما دارای تگ بود، چون باید همان ورودی به خروجی منتقل شود
             // از آنجایی که در اچ تی ام ال، تگ های بزرگتر و کوچکتر دارای معنی خاص هستند، باید با رشته کد 
             //&lt;
             // جایگزین شود
 
-            input = input.Replace("<", " &lt;");
+            input = input.Replace("<", "&lt;");
             // در عین حال ، ما یک تگ خاص را برای هایلایت در نظر گرفته ایم که نباید به عنوان متن در نظر گرفته شود
             // در اینجا تگ مد نظر ما تگ B است
             // این تگ را دوباره به حالت اول باز میگردانیم
-            input = input.Replace("&lt;b>", " <span style=\"background-color:yellow;color:red;font-weight:bold;\"> ");
+            input = input.Replace("&lt;b>", "<span style=\"background-color:yellow;color:red;font-weight:bold; \">");
             // یک تگ پی به عنوان تگ کلی در نظر می گیریم و خروجی را در آن می ریزیم
-            input = "<p dir=\"ltr\"> " +  input.Replace("&lt;/b>", " </span> ") + " </p> ";
+            input = "<p dir=\"ltr\">" +  input.Replace("&lt;/b>", "</span>") + "</p>";
 
             return input;
         }
