@@ -52,8 +52,99 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
-    <Reference Include="Telerik.Windows.Controls.GridView">
-      <HintPath>D:\STAR Platform\STAR Platform Code\Development\_BUILD\Client\Telerik.Windows.Controls.GridView.dll</HintPath>
+    <Reference Include="Telerik.Windows.Controls">
+      <HintPath>E:\Program Files (x86)\Telerik\RadControls for WPF Q3 2013\Binaries\WPF45\Telerik.Windows.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Chart">
+      <HintPath>E:\Program Files (x86)\Telerik\RadControls for WPF Q3 2013\Binaries\WPF45\Telerik.Windows.Controls.Chart.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Charting">
+      <HintPath>E:\Program Files (x86)\Telerik\RadControls for WPF Q3 2013\Binaries\WPF45\Telerik.Windows.Controls.Charting.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Data">
+      <HintPath>E:\Program Files (x86)\Telerik\RadControls for WPF Q3 2013\Binaries\WPF45\Telerik.Windows.Controls.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.GridView, Version=2016.2.804.45, Culture=neutral, PublicKeyToken=d3625f8bf04286d7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\Program Files (x86)\Telerik\RadControls for WPF Q3 2013\Binaries\WPF45\Telerik.Windows.Controls.GridView.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Input">
+      <HintPath>E:\Program Files (x86)\Telerik\RadControls for WPF Q3 2013\Binaries\WPF45\Telerik.Windows.Controls.Input.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.RichTextBoxUI">
+      <HintPath>E:\Program Files (x86)\Telerik\RadControls for WPF Q3 2013\Binaries\WPF45\Telerik.Windows.Controls.RichTextBoxUI.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.ScheduleView">
+      <HintPath>E:\Program Files (x86)\Telerik\RadControls for WPF Q3 2013\Binaries\WPF45\Telerik.Windows.Controls.ScheduleView.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Spreadsheet">
+      <HintPath>E:\Program Files (x86)\Telerik\RadControls for WPF Q3 2013\Binaries\WPF45\Telerik.Windows.Controls.Spreadsheet.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Data">
+      <HintPath>E:\Program Files (x86)\Telerik\RadControls for WPF Q3 2013\Binaries\WPF45\Telerik.Windows.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Diagrams.Core">
+      <HintPath>E:\Program Files (x86)\Telerik\RadControls for WPF Q3 2013\Binaries\WPF45\Telerik.Windows.Diagrams.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents">
+      <HintPath>E:\Program Files (x86)\Telerik\RadControls for WPF Q3 2013\Binaries\WPF45\Telerik.Windows.Documents.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Core">
+      <HintPath>E:\Program Files (x86)\Telerik\RadControls for WPF Q3 2013\Binaries\WPF45\Telerik.Windows.Documents.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Fixed">
+      <HintPath>E:\Program Files (x86)\Telerik\RadControls for WPF Q3 2013\Binaries\WPF45\Telerik.Windows.Documents.Fixed.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Flow">
+      <HintPath>E:\Program Files (x86)\Telerik\RadControls for WPF Q3 2013\Binaries\WPF45\Telerik.Windows.Documents.Flow.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.FormatProviders.Html">
+      <HintPath>E:\Program Files (x86)\Telerik\RadControls for WPF Q3 2013\Binaries\WPF45\Telerik.Windows.Documents.FormatProviders.Html.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.FormatProviders.MsRichTextBoxXaml">
+      <HintPath>E:\Program Files (x86)\Telerik\RadControls for WPF Q3 2013\Binaries\WPF45\Telerik.Windows.Documents.FormatProviders.MsRichTextBoxXaml.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.FormatProviders.OpenXml">
+      <HintPath>E:\Program Files (x86)\Telerik\RadControls for WPF Q3 2013\Binaries\WPF45\Telerik.Windows.Documents.FormatProviders.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.FormatProviders.Pdf">
+      <HintPath>E:\Program Files (x86)\Telerik\RadControls for WPF Q3 2013\Binaries\WPF45\Telerik.Windows.Documents.FormatProviders.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.FormatProviders.Rtf">
+      <HintPath>E:\Program Files (x86)\Telerik\RadControls for WPF Q3 2013\Binaries\WPF45\Telerik.Windows.Documents.FormatProviders.Rtf.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.FormatProviders.Xaml">
+      <HintPath>E:\Program Files (x86)\Telerik\RadControls for WPF Q3 2013\Binaries\WPF45\Telerik.Windows.Documents.FormatProviders.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Proofing">
+      <HintPath>E:\Program Files (x86)\Telerik\RadControls for WPF Q3 2013\Binaries\WPF45\Telerik.Windows.Documents.Proofing.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Proofing.DataGrid">
+      <HintPath>E:\Program Files (x86)\Telerik\RadControls for WPF Q3 2013\Binaries\WPF45\Telerik.Windows.Documents.Proofing.DataGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Proofing.Dictionaries.En-US">
+      <HintPath>E:\Program Files (x86)\Telerik\RadControls for WPF Q3 2013\Binaries\WPF45\Telerik.Windows.Documents.Proofing.Dictionaries.En-US.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Proofing.RadGridView">
+      <HintPath>E:\Program Files (x86)\Telerik\RadControls for WPF Q3 2013\Binaries\WPF45\Telerik.Windows.Documents.Proofing.RadGridView.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Spreadsheet">
+      <HintPath>E:\Program Files (x86)\Telerik\RadControls for WPF Q3 2013\Binaries\WPF45\Telerik.Windows.Documents.Spreadsheet.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml">
+      <HintPath>E:\Program Files (x86)\Telerik\RadControls for WPF Q3 2013\Binaries\WPF45\Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Maths">
+      <HintPath>E:\Program Files (x86)\Telerik\RadControls for WPF Q3 2013\Binaries\WPF45\Telerik.Windows.Maths.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.PersistenceFramework">
+      <HintPath>E:\Program Files (x86)\Telerik\RadControls for WPF Q3 2013\Binaries\WPF45\Telerik.Windows.PersistenceFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Scheduling.Core">
+      <HintPath>E:\Program Files (x86)\Telerik\RadControls for WPF Q3 2013\Binaries\WPF45\Telerik.Windows.Scheduling.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Zip">
+      <HintPath>E:\Program Files (x86)\Telerik\RadControls for WPF Q3 2013\Binaries\WPF45\Telerik.Windows.Zip.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
@@ -64,6 +155,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="PersianParsing.cs" />
     <Compile Include="StringUtil.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
