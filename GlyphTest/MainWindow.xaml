@@ -8,160 +8,82 @@
         xmlns:local="clr-namespace:GlyphTest"
         xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
         mc:Ignorable="d"
-        Title="MainWindow" Height="300" Width="510" WindowState="Maximized" FontFamily="B Nazanin">
+        Title="MainWindow" Height="300" Width="510" WindowState="Maximized">
     <Grid>
-        <telerik:RadGridView Name="htmlDataGrid" AutoGenerateColumns="False">
+        <telerik:RadGridView Name="htmlDataGrid" AutoGenerateColumns="False" FlowDirection="LeftToRight">
             <telerik:RadGridView.Columns>
                 <telerik:GridViewDataColumn Header="نمونه"  >
                     <telerik:GridViewDataColumn.CellTemplate>
                         <DataTemplate>
-                            <wpf:HtmlPanel x:Name="HtmlPanel" Text="{Binding Text}" FontFamily="B Nazanin" MaxWidth="Infinity" MaxHeight="Infinity"/>
+                            <local:HtmlRenderer x:Name="HtmlPanel" HtmlContent="{Binding Text}" />
                         </DataTemplate>
                     </telerik:GridViewDataColumn.CellTemplate>
                 </telerik:GridViewDataColumn>
                 <telerik:GridViewDataColumn Header="نمونه">
                     <telerik:GridViewDataColumn.CellTemplate>
                         <DataTemplate>
-                            <wpf:HtmlPanel x:Name="HtmlPanel" Text="{Binding Text1}" FontFamily="B Nazanin" MaxWidth="Infinity" MaxHeight="Infinity"/>
+                            <local:HtmlRenderer x:Name="HtmlPanel" HtmlContent="{Binding Text}" />
                         </DataTemplate>
                     </telerik:GridViewDataColumn.CellTemplate>
                 </telerik:GridViewDataColumn>
                 <telerik:GridViewDataColumn Header="نمونه">
                     <telerik:GridViewDataColumn.CellTemplate>
                         <DataTemplate>
-                            <wpf:HtmlPanel x:Name="HtmlPanel" Text="{Binding Text2}" FontFamily="B Nazanin" MaxWidth="Infinity" MaxHeight="Infinity"/>
+                            <local:HtmlRenderer x:Name="HtmlPanel" HtmlContent="{Binding Text}" />
                         </DataTemplate>
                     </telerik:GridViewDataColumn.CellTemplate>
                 </telerik:GridViewDataColumn>
                 <telerik:GridViewDataColumn Header="نمونه">
                     <telerik:GridViewDataColumn.CellTemplate>
                         <DataTemplate>
-                            <wpf:HtmlPanel x:Name="HtmlPanel" Text="{Binding Text3}" FontFamily="B Nazanin" MaxWidth="Infinity" MaxHeight="Infinity"/>
+                            <local:HtmlRenderer x:Name="HtmlPanel" HtmlContent="{Binding Text}" />
                         </DataTemplate>
                     </telerik:GridViewDataColumn.CellTemplate>
                 </telerik:GridViewDataColumn>
                 <telerik:GridViewDataColumn Header="نمونه">
                     <telerik:GridViewDataColumn.CellTemplate>
                         <DataTemplate>
-                            <wpf:HtmlPanel x:Name="HtmlPanel" Text="{Binding Text4}" FontFamily="B Nazanin" MaxWidth="Infinity" MaxHeight="Infinity"/>
+                            <local:HtmlRenderer x:Name="HtmlPanel" HtmlContent="{Binding Text}" />
                         </DataTemplate>
                     </telerik:GridViewDataColumn.CellTemplate>
                 </telerik:GridViewDataColumn>
                 <telerik:GridViewDataColumn Header="نمونه">
                     <telerik:GridViewDataColumn.CellTemplate>
                         <DataTemplate>
-                            <wpf:HtmlPanel x:Name="HtmlPanel" Text="{Binding Text5}" FontFamily="B Nazanin" MaxWidth="Infinity" MaxHeight="Infinity"/>
+                            <local:HtmlRenderer x:Name="HtmlPanel" HtmlContent="{Binding Text}" />
                         </DataTemplate>
                     </telerik:GridViewDataColumn.CellTemplate>
                 </telerik:GridViewDataColumn>
                 <telerik:GridViewDataColumn Header="نمونه">
                     <telerik:GridViewDataColumn.CellTemplate>
                         <DataTemplate>
-                            <wpf:HtmlPanel x:Name="HtmlPanel" Text="{Binding Text6}" FontFamily="B Nazanin" MaxWidth="Infinity" MaxHeight="Infinity"/>
+                            <local:HtmlRenderer x:Name="HtmlPanel" HtmlContent="{Binding Text}" />
                         </DataTemplate>
                     </telerik:GridViewDataColumn.CellTemplate>
                 </telerik:GridViewDataColumn>
                 <telerik:GridViewDataColumn Header="نمونه">
                     <telerik:GridViewDataColumn.CellTemplate>
                         <DataTemplate>
-                            <wpf:HtmlPanel x:Name="HtmlPanel" Text="{Binding Text7}" FontFamily="B Nazanin" MaxWidth="Infinity" MaxHeight="Infinity"/>
+                            <local:HtmlRenderer x:Name="HtmlPanel" HtmlContent="{Binding Text}" />
                         </DataTemplate>
                     </telerik:GridViewDataColumn.CellTemplate>
                 </telerik:GridViewDataColumn>
                 <telerik:GridViewDataColumn Header="نمونه">
                     <telerik:GridViewDataColumn.CellTemplate>
                         <DataTemplate>
-                            <wpf:HtmlPanel x:Name="HtmlPanel" Text="{Binding Text8}" FontFamily="B Nazanin" MaxWidth="Infinity" MaxHeight="Infinity"/>
+                            <local:HtmlRenderer x:Name="HtmlPanel" HtmlContent="{Binding Text}" />
                         </DataTemplate>
                     </telerik:GridViewDataColumn.CellTemplate>
                 </telerik:GridViewDataColumn>
                 <telerik:GridViewDataColumn Header="نمونه">
                     <telerik:GridViewDataColumn.CellTemplate>
                         <DataTemplate>
-                            <wpf:HtmlPanel x:Name="HtmlPanel" Text="{Binding Text9}" FontFamily="B Nazanin" MaxWidth="Infinity" MaxHeight="Infinity"/>
+                            <local:HtmlRenderer x:Name="HtmlPanel" HtmlContent="{Binding Text}" />
                         </DataTemplate>
                     </telerik:GridViewDataColumn.CellTemplate>
                 </telerik:GridViewDataColumn>
             </telerik:RadGridView.Columns>
         </telerik:RadGridView>
 
-       
-
-        <!--<DataGrid Name="htmlDataGrid" Margin="0,0,0,25" AutoGenerateColumns="False">
-            <DataGrid.Columns>
-                <DataGridTemplateColumn Header="نمونه" >
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <wpf:HtmlPanel x:Name="HtmlPanel" Text="{Binding Text}" FontFamily="B Nazanin" MaxWidth="Infinity" MaxHeight="Infinity"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="نمونه" >
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <wpf:HtmlPanel x:Name="HtmlPanel" Text="{Binding Text1}" FontFamily="B Nazanin"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="نمونه">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <wpf:HtmlPanel  x:Name="HtmlPanel" Height="100" Text="{Binding Text2}"  FontFamily="B Nazanin"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="نمونه">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <wpf:HtmlPanel x:Name="HtmlPanel" Text="{Binding Text3}" FontFamily="B Nazanin"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="نمونه">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <wpf:HtmlPanel x:Name="HtmlPanel" Text="{Binding Text4}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="نمونه">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <wpf:HtmlPanel x:Name="HtmlPanel" Text="{Binding Text5}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="نمونه">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <wpf:HtmlPanel x:Name="HtmlPanel" Text="{Binding Text6}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="نمونه">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <wpf:HtmlPanel x:Name="HtmlPanel" Text="{Binding Text7}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="نمونه">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <wpf:HtmlPanel x:Name="HtmlPanel" Text="{Binding Text8}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="نمونه">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <wpf:HtmlPanel x:Name="HtmlPanel" Text="{Binding Text9}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-            </DataGrid.Columns>
-        </DataGrid>-->
-
-        <!--<Button Height="25" VerticalAlignment="Bottom" Click="Button_Click" Content="LOAD"/>-->
     </Grid>
 </Window>
