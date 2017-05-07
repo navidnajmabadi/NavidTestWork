@@ -59,7 +59,10 @@ namespace TheArtOfDev.HtmlRenderer.WPF.Adapters
             _releaseGraphics = releaseGraphics;
         }
         string Direction;
-    
+        public void setDirection(string direction)
+        {
+            Direction = direction;
+        }
         /// <summary>
         /// Init.
         /// </summary>
@@ -123,14 +126,18 @@ namespace TheArtOfDev.HtmlRenderer.WPF.Adapters
                     }
                 }
             }
-
+            ////////////////////////
             
-            if (width <= 0)
+            if (width <= 0 && Direction=="rtl")
             {
                 var formattedText = new FormattedText(str, CultureInfo.CurrentCulture, FlowDirection.RightToLeft, ((FontAdapter)font).Font, 96d / 72d * font.Size, Brushes.Red);
                 return new RSize(formattedText.WidthIncludingTrailingWhitespace, formattedText.Height);
             }
-           
+            else if(width <= 0 && Direction == "ltr")
+            {
+                var formattedText = new FormattedText(str, CultureInfo.CurrentCulture, FlowDirection.LeftToRight, ((FontAdapter)font).Font, 96d / 72d * font.Size, Brushes.Red);
+                return new RSize(formattedText.WidthIncludingTrailingWhitespace, formattedText.Height);
+            }
 
             return new RSize(width * font.Size * 96d / 72d, font.Height);
         }

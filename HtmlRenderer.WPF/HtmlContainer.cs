@@ -19,7 +19,6 @@ using System.Windows.Media;
 using TheArtOfDev.HtmlRenderer.Adapters.Entities;
 using TheArtOfDev.HtmlRenderer.Core;
 using TheArtOfDev.HtmlRenderer.Core.Entities;
-using TheArtOfDev.HtmlRenderer.Core.Parse;
 using TheArtOfDev.HtmlRenderer.Core.Utils;
 using TheArtOfDev.HtmlRenderer.WPF.Adapters;
 using TheArtOfDev.HtmlRenderer.WPF.Utilities;
@@ -77,11 +76,11 @@ namespace TheArtOfDev.HtmlRenderer.WPF
         /// Raised when Html Renderer request scroll to specific location.<br/>
         /// This can occur on document anchor click.
         /// </summary>
-        public event EventHandler<HtmlScrollEventArgs> ScrollChange
-        {
-            add { _htmlContainerInt.ScrollChange += value; }
-            remove { _htmlContainerInt.ScrollChange -= value; }
-        }
+        //public event EventHandler<HtmlScrollEventArgs> ScrollChange
+        //{
+        //    add { _htmlContainerInt.ScrollChange += value; }
+        //    remove { _htmlContainerInt.ScrollChange -= value; }
+        //}
 
         /// <summary>
         /// Raised when an error occurred during html rendering.<br/>
@@ -247,6 +246,8 @@ namespace TheArtOfDev.HtmlRenderer.WPF
         {
             get { return _htmlContainerInt.SelectedHtml; }
         }
+
+        public Action<object, HtmlScrollEventArgs> ScrollChange { get; internal set; }
 
         /// <summary>
         /// Init with optional document and stylesheet.

@@ -10,80 +10,157 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="300" Width="510" WindowState="Maximized">
     <Grid>
-        <telerik:RadGridView Name="htmlDataGrid" AutoGenerateColumns="False" FlowDirection="LeftToRight">
+        <telerik:RadGridView Name="htmlDataGrid" AutoGenerateColumns="False"  FlowDirection="RightToLeft"  IsReadOnly="True" SelectionUnit="Cell" >
             <telerik:RadGridView.Columns>
                 <telerik:GridViewDataColumn Header="نمونه"  >
                     <telerik:GridViewDataColumn.CellTemplate>
                         <DataTemplate>
-                            <local:HtmlRenderer x:Name="HtmlPanel" HtmlContent="{Binding Text}" />
+                            <local:HtmleRendererUC x:Name="HtmlPanel" HtmlContent="{Binding Text}"  Height="25" Width="190"/>
+                            <!--<TextBlock x:Name="HtmlPanel" Text="{Binding Text}"  Height="25" TextTrimming="CharacterEllipsis"/>-->
+
+                        </DataTemplate>
+                    </telerik:GridViewDataColumn.CellTemplate>
+                </telerik:GridViewDataColumn>
+                <!--<telerik:GridViewDataColumn Header="نمونه">
+                    <telerik:GridViewDataColumn.CellTemplate>
+                        <DataTemplate>
+                            <local:HtmleRendererUC x:Name="HtmlPanel"  HtmlContent="{Binding Text}" Background="DimGray"/>
                         </DataTemplate>
                     </telerik:GridViewDataColumn.CellTemplate>
                 </telerik:GridViewDataColumn>
                 <telerik:GridViewDataColumn Header="نمونه">
                     <telerik:GridViewDataColumn.CellTemplate>
                         <DataTemplate>
-                            <local:HtmlRenderer x:Name="HtmlPanel" HtmlContent="{Binding Text}" />
+                            <local:HtmleRendererUC x:Name="HtmlPanel"  HtmlContent="{Binding Text}" Background="DimGray"/>
                         </DataTemplate>
                     </telerik:GridViewDataColumn.CellTemplate>
                 </telerik:GridViewDataColumn>
                 <telerik:GridViewDataColumn Header="نمونه">
                     <telerik:GridViewDataColumn.CellTemplate>
                         <DataTemplate>
-                            <local:HtmlRenderer x:Name="HtmlPanel" HtmlContent="{Binding Text}" />
+                            <local:HtmleRendererUC x:Name="HtmlPanel"  HtmlContent="{Binding Text}" Background="DimGray"/>
                         </DataTemplate>
                     </telerik:GridViewDataColumn.CellTemplate>
                 </telerik:GridViewDataColumn>
                 <telerik:GridViewDataColumn Header="نمونه">
                     <telerik:GridViewDataColumn.CellTemplate>
                         <DataTemplate>
-                            <local:HtmlRenderer x:Name="HtmlPanel" HtmlContent="{Binding Text}" />
+                            <local:HtmleRendererUC x:Name="HtmlPanel"  HtmlContent="{Binding Text}" Background="DimGray"/>
                         </DataTemplate>
                     </telerik:GridViewDataColumn.CellTemplate>
                 </telerik:GridViewDataColumn>
                 <telerik:GridViewDataColumn Header="نمونه">
                     <telerik:GridViewDataColumn.CellTemplate>
                         <DataTemplate>
-                            <local:HtmlRenderer x:Name="HtmlPanel" HtmlContent="{Binding Text}" />
+                            <local:HtmleRendererUC x:Name="HtmlPanel"  HtmlContent="{Binding Text}" Background="DimGray"/>
                         </DataTemplate>
                     </telerik:GridViewDataColumn.CellTemplate>
                 </telerik:GridViewDataColumn>
                 <telerik:GridViewDataColumn Header="نمونه">
                     <telerik:GridViewDataColumn.CellTemplate>
                         <DataTemplate>
-                            <local:HtmlRenderer x:Name="HtmlPanel" HtmlContent="{Binding Text}" />
+                            <local:HtmleRendererUC x:Name="HtmlPanel"  HtmlContent="{Binding Text}" Background="DimGray"/>
                         </DataTemplate>
                     </telerik:GridViewDataColumn.CellTemplate>
                 </telerik:GridViewDataColumn>
                 <telerik:GridViewDataColumn Header="نمونه">
                     <telerik:GridViewDataColumn.CellTemplate>
                         <DataTemplate>
-                            <local:HtmlRenderer x:Name="HtmlPanel" HtmlContent="{Binding Text}" />
+                            <local:HtmleRendererUC x:Name="HtmlPanel"  HtmlContent="{Binding Text}" Background="DimGray"/>
                         </DataTemplate>
                     </telerik:GridViewDataColumn.CellTemplate>
                 </telerik:GridViewDataColumn>
                 <telerik:GridViewDataColumn Header="نمونه">
                     <telerik:GridViewDataColumn.CellTemplate>
                         <DataTemplate>
-                            <local:HtmlRenderer x:Name="HtmlPanel" HtmlContent="{Binding Text}" />
+                            <local:HtmleRendererUC x:Name="HtmlPanel"  HtmlContent="{Binding Text}" Background="DimGray"/>
                         </DataTemplate>
                     </telerik:GridViewDataColumn.CellTemplate>
                 </telerik:GridViewDataColumn>
                 <telerik:GridViewDataColumn Header="نمونه">
                     <telerik:GridViewDataColumn.CellTemplate>
                         <DataTemplate>
-                            <local:HtmlRenderer x:Name="HtmlPanel" HtmlContent="{Binding Text}" />
+                            <local:HtmleRendererUC x:Name="HtmlPanel"  HtmlContent="{Binding Text}" Background="DimGray"/>
                         </DataTemplate>
                     </telerik:GridViewDataColumn.CellTemplate>
-                </telerik:GridViewDataColumn>
-                <telerik:GridViewDataColumn Header="نمونه">
-                    <telerik:GridViewDataColumn.CellTemplate>
-                        <DataTemplate>
-                            <local:HtmlRenderer x:Name="HtmlPanel" HtmlContent="{Binding Text}" />
-                        </DataTemplate>
-                    </telerik:GridViewDataColumn.CellTemplate>
-                </telerik:GridViewDataColumn>
+                </telerik:GridViewDataColumn>-->
             </telerik:RadGridView.Columns>
         </telerik:RadGridView>
+
+        <!--<DataGrid Name="htmlDataGrid" Margin="0,0,0,25" AutoGenerateColumns="False" FlowDirection="RightToLeft"  IsTextSearchEnabled="True" Background="DimGray" >
+            <DataGrid.Columns>
+                <DataGridTemplateColumn  Header="نمونه" Width="200">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <local:HtmleRendererUC x:Name="HtmlPanel" HtmlContent="{Binding Text}" Background="DimGray" Height="25"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>-->
+                <!--<DataGridTemplateColumn Header="نمونه" IsReadOnly="True" Width="200">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock x:Name="HtmlPanel"  Text="{Binding Text}" Background="DimGray" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>-->
+                <!--<DataGridTemplateColumn Header="نمونه" Width="200">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <local:HtmleRendererUC x:Name="HtmlPanel"  HtmlContent="{Binding Text}" Background="DimGray"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="نمونه" Width="200">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <local:HtmleRendererUC x:Name="HtmlPanel"  HtmlContent="{Binding Text}" Background="DimGray"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="نمونه" Width="200">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <local:HtmleRendererUC x:Name="HtmlPanel"  HtmlContent="{Binding Text}" Background="DimGray"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="نمونه" Width="200">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <local:HtmleRendererUC x:Name="HtmlPanel"  HtmlContent="{Binding Text}" Background="DimGray"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="نمونه" Width="200">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <local:HtmleRendererUC x:Name="HtmlPanel"  HtmlContent="{Binding Text}" Background="DimGray"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="نمونه" Width="200">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <local:HtmleRendererUC x:Name="HtmlPanel"  HtmlContent="{Binding Text}" Background="DimGray"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="نمونه" Width="200">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <local:HtmleRendererUC x:Name="HtmlPanel"  HtmlContent="{Binding Text}" Background="DimGray"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="نمونه" Width="200">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <local:HtmleRendererUC x:Name="HtmlPanel"  HtmlContent="{Binding Text}" Background="DimGray"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>-->
+            <!--</DataGrid.Columns>
+        </DataGrid>-->
 
     </Grid>
 </Window>

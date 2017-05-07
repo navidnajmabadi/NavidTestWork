@@ -60,14 +60,14 @@ namespace TheArtOfDev.HtmlRenderer.WPF
         {
             _verticalScrollBar = new ScrollBar();
             _verticalScrollBar.Orientation = Orientation.Vertical;
-            _verticalScrollBar.Width = 18;
+            _verticalScrollBar.Width = 1;
             _verticalScrollBar.Scroll += OnScrollBarScroll;
             AddVisualChild(_verticalScrollBar);
             AddLogicalChild(_verticalScrollBar);
 
             _horizontalScrollBar = new ScrollBar();
             _horizontalScrollBar.Orientation = Orientation.Horizontal;
-            _horizontalScrollBar.Height = 18;
+            _horizontalScrollBar.Height = 1;
             _horizontalScrollBar.Scroll += OnScrollBarScroll;
             AddVisualChild(_horizontalScrollBar);
             AddLogicalChild(_horizontalScrollBar);
@@ -126,7 +126,7 @@ namespace TheArtOfDev.HtmlRenderer.WPF
             var htmlHeight = HtmlHeight(constraint);
 
             if ((_verticalScrollBar.Visibility == Visibility.Hidden && size.Height > htmlHeight) ||
-                (_verticalScrollBar.Visibility == Visibility.Visible && size.Height <= htmlHeight))
+            (_verticalScrollBar.Visibility == Visibility.Visible && size.Height <= htmlHeight))
             {
                 _verticalScrollBar.Visibility = _verticalScrollBar.Visibility == Visibility.Visible ? Visibility.Hidden : Visibility.Visible;
                 relayout = true;
@@ -208,7 +208,7 @@ namespace TheArtOfDev.HtmlRenderer.WPF
         {
             base.OnRender(context);
 
-            // render rectangle in right bottom corner where both scrolls meet
+            //render rectangle in right bottom corner where both scrolls meet
             if (_horizontalScrollBar.Visibility == Visibility.Visible && _verticalScrollBar.Visibility == Visibility.Visible)
                 context.DrawRectangle(SystemColors.ControlBrush, null, new Rect(BorderThickness.Left + HtmlWidth(RenderSize), BorderThickness.Top + HtmlHeight(RenderSize), _verticalScrollBar.Width, _horizontalScrollBar.Height));
         }
@@ -314,7 +314,7 @@ namespace TheArtOfDev.HtmlRenderer.WPF
         /// </summary>
         protected override double HtmlHeight(Size size)
         {
-            var height = base.HtmlHeight(size) - (_horizontalScrollBar.Visibility == Visibility.Visible ? _horizontalScrollBar.Height : 0);
+            var height = base.HtmlHeight(size)- (_horizontalScrollBar.Visibility == Visibility.Visible ? _horizontalScrollBar.Height : 0);
             return height > 1 ? height : 1;
         }
 

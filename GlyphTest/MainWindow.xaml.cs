@@ -1,19 +1,7 @@
-﻿using NBidi;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+
 
 namespace GlyphTest
 {
@@ -24,7 +12,8 @@ namespace GlyphTest
     {
         public MainWindow()
         {
-            InitializeComponent();
+           
+           InitializeComponent();
             Button_Click();
         }
         public class DataClass
@@ -53,7 +42,8 @@ namespace GlyphTest
             for (int i = 0; i < 1000 ; i++)
             {
                 var dataClass = new DataClass();
-                dataClass.Text = "<b>فارxyسی</b> اول           دوم  سوم  fo44uچهارr five  ششم seven  هشeight88ت   nineده   یازدهeleven <b>فارxyسی</b> اول      دوم          سوم fo44uچهارr   five  ششم seven هشeight88ت nineده    یازدهeleven  <b> فارxyسی </b> اول  دوم       سوم fo44uچهارr five  ششم seven هشeight88ت nineده یازدهeleven";
+                dataClass.Text = $@" متن <b>فارسی</b> است";
+                //dataClass.Text = $@"<b>فارxyسی</b> اول    دوم    سوم     fo43uچهار   five  ششم    seven  هشeight88ت  nineده  یازدهeleven" +i;
                 //dataClass.Text = obj.Reform("first second thirs ");
                 //dataClass.Text1 = obj.Reform($"<b>فاHelloرسی</b>فاHelloرسی<b> فار123456789سی </b>  123456<b>A12BC34D56789</b> ");
                 //dataClass.Text2 = obj.Reform("first اول second دوم third سوم");
@@ -65,13 +55,13 @@ namespace GlyphTest
                 //dataClass.Text6 = obj.Reform($"<b>فارxyسی</b> اول دوم سوم fo44uچهارr five  ششم seven هشeight88ت nineده یازدهeleven <b>فارxyسی</b> اول دوم سوم fo44uچهارr five  ششم seven هشeight88ت nineده یازدهeleven  <b> فارxyسی </b> اول دوم سوم fo44uچهارr five  ششم seven هشeight88ت nineده یازدهeleven");
                 //dataClass.Text7 = obj.Reform($"<b>فارxyسی</b> اول دوم سوم fo44uچهارr five      ششم seven هشeight88ت nineده یازدهeleven <b>فارxyسی</b> اول دوم سوم fo44uچهارr five  ششم seven هشeight88ت nineده یازدهeleven  <b> فارxyسی </b> اول دوم سوم fo44uچهارr five  ششم seven هشeight88ت nineده یازدهeleven");
                 //dataClass.Text8 = obj.Reform($"<b>فارxyسی</b> اول دوم سوم fo44uچهارr five  ششم seven هشeight88ت nineده یازدهeleven <b>فارxyسی</b> اول دوم سوم fo44uچهارr five  ششم seven هشeight88ت nineده یازدهeleven  <b> فارxyسی </b> اول دوم سوم fo44uچهارr five  ششم seven هشeight88ت nineده یازدهeleven");
-                //dataClass.Text9 = obj.Reform($"<b>فارxyسی</b> اول دوم سوم fo44uچهارr five  ششم seven هشeight88ت nineده یازدهeleven <b>فارxyسی</b> اول دوم سوم fo44uچهارr five  ششم seven هشeight88ت nineده یازدهeleven  <b> فارxyسی </b> اول دوم سوم fo44uچهارr five  ششم seven هشeight88ت nineده یازدهeleven");
+                //dataClass.Text9 = obj.Reform($);
                 dataList.Add(dataClass);
             }
            
             htmlDataGrid.ItemsSource = dataList;
             var d2 = DateTime.Now;
-           MessageBox.Show(d2.Subtract(d1).TotalMilliseconds+"");
+            MessageBox.Show(d2.Subtract(d1).TotalMilliseconds + "");
         }
     }
 }
