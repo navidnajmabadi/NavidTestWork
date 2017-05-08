@@ -10,12 +10,13 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="300" Width="510" WindowState="Maximized">
     <Grid>
-        <telerik:RadGridView Name="htmlDataGrid" AutoGenerateColumns="False"  FlowDirection="RightToLeft"  IsReadOnly="True" SelectionUnit="Cell" >
+        <telerik:RadGridView  Name="htmlDataGrid" AutoGenerateColumns="False"  FlowDirection="RightToLeft"  IsReadOnly="True" SelectionUnit="Cell" >
             <telerik:RadGridView.Columns>
-                <telerik:GridViewDataColumn Header="نمونه"  >
+                <telerik:GridViewDataColumn Header="نمونه">
                     <telerik:GridViewDataColumn.CellTemplate>
                         <DataTemplate>
-                            <local:HtmleRendererUC x:Name="HtmlPanel" HtmlContent="{Binding Text}"  Height="25" Width="190"/>
+                            <!--<local:HtmleRendererUC x:Name="HtmlPanel" HtmlContent="{Binding Text}"  WidthColumn ="{Binding ActualWith}"  Height="25"/>-->
+                            <local:HtmleRendererUC x:Name="HtmlPanel" HtmlContent="{Binding Text}"  Height="25"/>
                             <!--<TextBlock x:Name="HtmlPanel" Text="{Binding Text}"  Height="25" TextTrimming="CharacterEllipsis"/>-->
 
                         </DataTemplate>

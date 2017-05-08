@@ -89,6 +89,7 @@
     <Compile Include="HtmleRendererUC.xaml.cs">
       <DependentUpon>HtmleRendererUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ParsString.cs" />
     <Compile Include="PersianParsing.cs" />
     <Compile Include="StringUtil.cs" />
     <Page Include="HtmleRendererUC.xaml">

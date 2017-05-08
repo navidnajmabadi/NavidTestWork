@@ -12,9 +12,10 @@ namespace GlyphTest
     {
         public MainWindow()
         {
-           
+            
            InitializeComponent();
             Button_Click();
+           
         }
         public class DataClass
         {
@@ -36,13 +37,14 @@ namespace GlyphTest
         {
             List<DataClass> dataList = new List<DataClass>();
                  Random r = new Random();
+            ParsString obj = new ParsString();
             var d1 = DateTime.Now;
-            PersianParsing obj = new PersianParsing();
+            
 
             for (int i = 0; i < 1000 ; i++)
             {
                 var dataClass = new DataClass();
-                dataClass.Text = $@" متن <b>فارسی</b> است";
+                dataClass.Text = obj.HtmlStringParsing("<h1> تسfgت  </h1><p> متن <mhstr123tag> 12345678 </mhstr123tag> فارسی </p> <br> ");//obj.HtmlStringParsing( " <b>text</b>");
                 //dataClass.Text = $@"<b>فارxyسی</b> اول    دوم    سوم     fo43uچهار   five  ششم    seven  هشeight88ت  nineده  یازدهeleven" +i;
                 //dataClass.Text = obj.Reform("first second thirs ");
                 //dataClass.Text1 = obj.Reform($"<b>فاHelloرسی</b>فاHelloرسی<b> فار123456789سی </b>  123456<b>A12BC34D56789</b> ");
@@ -63,5 +65,7 @@ namespace GlyphTest
             var d2 = DateTime.Now;
             MessageBox.Show(d2.Subtract(d1).TotalMilliseconds + "");
         }
+
+        
     }
 }
