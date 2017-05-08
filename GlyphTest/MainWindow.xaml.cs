@@ -63,7 +63,7 @@ namespace GlyphTest
            
             htmlDataGrid.ItemsSource = dataList;
             var d2 = DateTime.Now;
-            MessageBox.Show(d2.Subtract(d1).TotalMilliseconds + "");
+            //MessageBox.Show(d2.Subtract(d1).TotalMilliseconds + "");
         }
 
         

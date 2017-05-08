@@ -39,20 +39,79 @@ namespace GlyphTest
         private static void Html(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var control = (d as HtmleRendererUC);
-            control.HtmlPanel.Text = control.HtmlBody(control.HtmlContent ?? "");
+
+            control.BuildHead();
+            control.BuildBody();
+            control.HtmlPanel.Text = control.BuildHtml();
         }
         /// <summary>
         /// put in Html Header
         /// <param name="wordList"></param>
         /// <returns></returns>
         /// </summary>
-        public string HtmlBody(string text)
+        /// 
+        private string body;
+        private string head;
+        private void BuildBody()
         {
-            SeprateList(text);
-            string output;
-            output = String.Join(String.Empty, wordList.ToArray());
-            string Out = $@"<html>{HtmlHead()}<body><div class=""div2"">{output}</div></body></html>";
-            return Out;
+            if (!string.IsNullOrEmpty(this.HtmlContent))
+            {
+                SeprateList(this.HtmlContent);
+                this.body = String.Join(String.Empty, wordList.ToArray());
+            }
+        }
+
+        private void BuildHead()
+        {
+            double width = this.ActualWidth;
+            
+            var align = (FlowDirection == FlowDirection.RightToLeft ? "right" : "left");
+            var dir = (FlowDirection == FlowDirection.RightToLeft ? "rtl" : "ltr");
+
+            var headHtml = $@"<head>
+               <meta http-equiv=""Content-Type"" content=""text/html""; charset = ""UTF-8"" />
+               <style type=""text/css"">
+                 @font-face {{
+                     font-family: 'B Nazanin';
+                     src: url('C:\Users\admin\Desktop\Source\GlyphTest\fonts\BNazanin.eot'); 
+                     src: local('BNazanin'), url('C:\Users\admin\Desktop\Sourc\GlyphTest\fonts\BNazanin.ttf') format('truetype'); 
+                     font-weight:normal;
+                 }}
+             </style>
+             <style>
+                 mhstr123tag{{
+                     background-color:yellow; 
+                     font-weight: bold;
+                 }}
+                 body{{
+                        font-family: ""B Nazanin""; 
+                        text-align: {align};
+                        direction : {dir};
+                        padding : 0px;
+                        
+                        margin-{align}:-1px;
+                        margin-top : -3px;
+                        float :{align};
+                    }}
+                .div2 {{
+                    white-space: nowrap; 
+                    width:{width}px; 
+                    
+                    text-overflow: ellipsis; 
+                }}
+	
+                  
+              </style>
+
+              </head>";
+
+            head= headHtml;
+        }
+
+
+        private string BuildHtml()
+        {
+            return $@"<html>{head}<body><div class=""div2"">{body}</div></body></html>";
         }
 
         /// <summary>
@@ -60,7 +119,7 @@ namespace GlyphTest
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        public void SeprateList(string input)
+        private void SeprateList(string input)
         {
 
             List<char> tempChar = new List<char>();
@@ -98,7 +157,7 @@ namespace GlyphTest
         /// </summary>
         /// <param name="wordOutPut"></param>
         /// 
-        public void reformWords(List<string> wordSplit)
+        private void reformWords(List<string> wordSplit)
         {
             wordList = new List<string>();
             for (int t = 0; t < wordSplit.Count; t++)
@@ -229,59 +288,16 @@ namespace GlyphTest
             
         }
         /// <summary>
-            /// Html Style and Header
-            /// </summary>
-            /// <returns></returns>
-        private string HtmlHead()
-            {
-
-            double width= this.ActualWidth;
-            var align = (FlowDirection == FlowDirection.RightToLeft ? "right" : "left");
-            var dir = (FlowDirection == FlowDirection.RightToLeft ? "rtl" : "ltr");
-             
-            var headHtml = $@"<head>
-               <meta http-equiv=""Content-Type"" content=""text/html""; charset = ""UTF-8"" />
-               <style type=""text/css"">
-                 @font-face {{
-                     font-family: 'B Nazanin';
-                     src: url('C:\Users\admin\Desktop\Source\GlyphTest\fonts\BNazanin.eot'); 
-                     src: local('BNazanin'), url('C:\Users\admin\Desktop\Sourc\GlyphTest\fonts\BNazanin.ttf') format('truetype'); 
-                     font-weight:normal;
-                 }}
-             </style>
-             <style>
-                 mhstr123tag{{
-                     background-color:yellow; 
-                     font-weight: bold;
-                 }}
-                 body{{
-                        font-family: ""B Nazanin""; 
-                        text-align: {align};
-                        direction : {dir};
-                        padding : 0px;
-                        
-                        margin-{align}:-1px;
-                        margin-top : -3px;
-                        float :{align};
-                    }}
-                .div2 {{
-                    white-space: nowrap; 
-                    width:{Width}em; 
-                    overflow : hidden;
-                    text-overflow: ellipsis; 
-                }}
-	
-                  
-              </style>
-
-              </head>";
-
-                return headHtml;
-            }
-        
+        /// Html Style and Header
+        /// </summary>
+        /// <returns></returns>        
         private void UserControl_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-
+            if (!string.IsNullOrEmpty(this.HtmlContent))
+            {
+                BuildHead();
+                this.HtmlPanel.Text = BuildHtml();
+            }
         }
     }
 }
