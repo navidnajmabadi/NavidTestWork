@@ -41,24 +41,11 @@ namespace GlyphTest
             var d1 = DateTime.Now;
             
 
-            for (int i = 0; i < 1000 ; i++)
+            for (int i = 0; i < 10 ; i++)
             {
                 var dataClass = new DataClass();
                 //dataClass.Text = obj.HtmlStringParsing("one <mhstr123tag>t</mhstr123tag>wo <mhstr123tag>t</mhstr123tag>ree four five six seven eigh<mhstr123tag>t</mhstr123tag> nine <mhstr123tag>t</mhstr123tag>en one <mhstr123tag>t</mhstr123tag>wo tree four five six seven eight nine ten one two tree four five six seven eight nine ten one two tree four five six seven eight nine ten one two tree four five six seven eight nine ten");//obj.HtmlStringParsing( " <b>text</b>");
-                dataClass.Text = obj.HtmlStringParsing("اول دوم سوم چهارم پنجم ششم هفتم هشتم نهم دهم");
-                //dataClass.Text = $@"<b>فارxyسی</b> اول    دوم    سوم     fo43uچهار   five  ششم    seven  هشeight88ت  nineده  یازدهeleven" +i;
-                //dataClass.Text = obj.Reform("first second thirs ");
-                //dataClass.Text1 = obj.Reform($"<b>فاHelloرسی</b>فاHelloرسی<b> فار123456789سی </b>  123456<b>A12BC34D56789</b> ");
-                //dataClass.Text2 = obj.Reform("first اول second دوم third سوم");
-                //dataClass.Text1 = obj.Reform($"</b>  فارxyسی <b> اول   دوم     سوم fo44uچهارr five  ششم seven هشeight88ت   ni   ne   ده یازدهeleven </b>  فارxyسی   <b> اول دوم سوم fo44uچهارr five  ششم seven هشeight88ت nineده یازدهeleven ");
-                //dataClass.Text2 = obj.Reform($"</b> فارx       yسی   <b> اول دوم س  وم fo44uچهارr five      ششم seven هشeight88ت nineده یازدهeleven <b>فارxyسی</b> اول دوم سوم fo44uچهارr five  ششم seven هشeight88ت nineده یازدهeleven  <b> فارxyسی </b> اول دوم سوم fo44uچهارr five  ششم seven هشeight88ت nineده یازدهeleven");
-                //dataClass.Text3 = obj.Reform($"</b>  فارسی <b> اول دوم سوم fo44uچهارr five    ششم seven     هشeight88ت nineده یازدهeleven <b>فارxyسی</b> اول دوم سوم fo44uچهارr five  ششم seven هشeight88ت nineده یازدهeleven  <b> فارxyسی </b> اول دوم سوم fo44uچهارr five  ششم seven هشeight88ت nineده یازدهeleven");
-                //dataClass.Text4 = obj.Reform($"<b>فارxyسی</b> اول دوم سوم fo44uچهارr five  ششم seven هشeight88ت nineده یازدهeleven <b>فارxyسی</b> اول دوم سوم fo44uچهارr five  ششم seven هشeight88ت nineده یازدهeleven  <b> فارxyسی </b> اول دوم سوم fo44uچهارr five  ششم seven هشeight88ت nineده یازدهeleven");
-                //dataClass.Text5 = obj.Reform($"<b>فارxyسی</b> اول دوم سوم fo44uچهارr five  ششم seven      هشeight88ت nineده یازدهeleven <b>فارxyسی</b> اول دوم سوم fo44uچهارr five  ششم seven هشeight88ت nineده یازدهeleven  <b> فارxyسی </b> اول دوم سوم fo44uچهارr five  ششم seven هشeight88ت nineده یازدهeleven");
-                //dataClass.Text6 = obj.Reform($"<b>فارxyسی</b> اول دوم سوم fo44uچهارr five  ششم seven هشeight88ت nineده یازدهeleven <b>فارxyسی</b> اول دوم سوم fo44uچهارr five  ششم seven هشeight88ت nineده یازدهeleven  <b> فارxyسی </b> اول دوم سوم fo44uچهارr five  ششم seven هشeight88ت nineده یازدهeleven");
-                //dataClass.Text7 = obj.Reform($"<b>فارxyسی</b> اول دوم سوم fo44uچهارr five      ششم seven هشeight88ت nineده یازدهeleven <b>فارxyسی</b> اول دوم سوم fo44uچهارr five  ششم seven هشeight88ت nineده یازدهeleven  <b> فارxyسی </b> اول دوم سوم fo44uچهارr five  ششم seven هشeight88ت nineده یازدهeleven");
-                //dataClass.Text8 = obj.Reform($"<b>فارxyسی</b> اول دوم سوم fo44uچهارr five  ششم seven هشeight88ت nineده یازدهeleven <b>فارxyسی</b> اول دوم سوم fo44uچهارr five  ششم seven هشeight88ت nineده یازدهeleven  <b> فارxyسی </b> اول دوم سوم fo44uچهارr five  ششم seven هشeight88ت nineده یازدهeleven");
-                //dataClass.Text9 = obj.Reform($);
+                dataClass.Text = obj.HtmlStringParsing("english <mhstr123tag>text</mhstr123tag> sample <mhstr123tag>text</mhstr123tag> high character text");
                 dataList.Add(dataClass);
             }
            

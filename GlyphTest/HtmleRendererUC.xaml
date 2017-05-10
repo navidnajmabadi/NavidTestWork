@@ -6,7 +6,7 @@
              xmlns:wpf="clr-namespace:TheArtOfDev.HtmlRenderer.WPF;assembly=HtmlRenderer.WPF"
              xmlns:local="clr-namespace:GlyphTest" SizeChanged="UserControl_SizeChanged"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-    
-    <wpf:HtmlPanel x:Name="HtmlPanel"  FlowDirection="LeftToRight" Background="Transparent"  />
+             >
+
+    <wpf:HtmlPanel x:Name="HtmlPanel"  FlowDirection="LeftToRight" Background="#FFB2B2B2"  />
 </UserControl>

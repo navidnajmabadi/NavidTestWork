@@ -12,8 +12,8 @@ namespace GlyphTest
         {
             htmlString = htmlString.Replace("<", "&lt;");
             htmlString = htmlString.Replace(">", "&gt;");
-            htmlString = htmlString.Replace("&lt;mhstr123tag&gt;", "<mhstr123tag>");
-            htmlString = htmlString.Replace("&lt;/mhstr123tag&gt;", "</mhstr123tag>");
+            htmlString = htmlString.Replace("&lt;mhstr123tag&gt;", "<mhstr123tag> ");
+            htmlString = htmlString.Replace("&lt;/mhstr123tag&gt;", " </mhstr123tag>");
             return htmlString;
         }
     }

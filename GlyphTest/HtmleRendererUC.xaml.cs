@@ -58,12 +58,15 @@ namespace GlyphTest
             int maxLength = 0;
             if (!string.IsNullOrEmpty(this.HtmlContent))
             {
+                
                 double width = this.ActualWidth;
                 SeprateList(this.HtmlContent);
                 string text = String.Join(String.Empty, wordList.ToArray());
+                int count = text.Split(new string[] { "<mhstr123tag>" },StringSplitOptions.None).Length - 1;
+                int count2 = text.Split(new string[] { "</mhstr123tag>" }, StringSplitOptions.None).Length - 1;
                 int size = TextSize(text);
                 maxLength = ((size - (int)width) / 8)+1;
-                maxLength = text.Length - maxLength;
+                maxLength = (text.Length - maxLength);
                 if (maxLength < 0)
                     maxLength = (int)width;
                 this.body = TruncateLongString(String.Join(String.Empty, wordList.ToArray()), maxLength);         
@@ -99,8 +102,8 @@ namespace GlyphTest
                         margin-{align}: {marginSize}px;
                         margin-top : -3px;
                         float :{align};
+                        width: {width}px;
                     }}
-               
               </style>
 
               </head>";
@@ -214,17 +217,7 @@ namespace GlyphTest
                     {
                         if (englishChar.Count != 0)
                         {
-                            string englishWord = new string(englishChar.ToArray());
-                            if (englishWord == "<mhstr123tag>")
-                            {
-                                wordList.Add(englishWord);
-                                wordList.Add("&nbsp;");
-                            }
-                            if (englishWord == "</mhstr123tag>")
-                            {
-                                wordList.Add("&nbsp;");
-                                wordList.Add(englishWord);   
-                            }
+
                             for (int j = 0; j < englishChar.Count; j++)
                             {
                                 if (englishChar[j] <= 48 || englishChar[j] >= 58)
@@ -236,7 +229,7 @@ namespace GlyphTest
                             if (isNumberFlag && dir != "ltr")
                                 englishChar.Reverse();
 
-                            englishWord = new string(englishChar.ToArray());
+                            string englishWord = new string(englishChar.ToArray());
                             wordList.Add(englishWord);
                             englishChar.Clear();
                         }
@@ -323,7 +316,7 @@ namespace GlyphTest
                 int size = TextSize(text);
                 BuildHead();
                 maxLength = ((size - (int)width) / 8) + 1;
-                maxLength = text.Length - maxLength;
+                maxLength = (text.Length - maxLength) ;
                 if (maxLength < 0)
                     maxLength = (int)width;
                 this.body = TruncateLongString(String.Join(String.Empty, wordList.ToArray()), maxLength);

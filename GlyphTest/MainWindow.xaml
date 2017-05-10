@@ -12,11 +12,11 @@
     <Grid>
         <telerik:RadGridView  Name="htmlDataGrid" AutoGenerateColumns="False"  FlowDirection="LeftToRight"  IsReadOnly="True" SelectionUnit="Cell" >
             <telerik:RadGridView.Columns>
-                <telerik:GridViewDataColumn Header="نمونه">
+                <telerik:GridViewDataColumn Header="نمونه" Background="#FFB2B2B2">
                     <telerik:GridViewDataColumn.CellTemplate>
                         <DataTemplate>
                             <!--<local:HtmleRendererUC x:Name="HtmlPanel" HtmlContent="{Binding Text}"  WidthColumn ="{Binding ActualWith}"  Height="25"/>-->
-                            <local:HtmleRendererUC x:Name="HtmlPanel" HtmlContent="{Binding Text}"  Height="25"/>
+                            <local:HtmleRendererUC x:Name="HtmlPanel" HtmlContent="{Binding Text}"  Height="25" Background="Transparent"/>
                             <!--<TextBlock x:Name="HtmlPanel" Text="{Binding Text}"  Height="25" TextTrimming="CharacterEllipsis"/>-->
 
                         </DataTemplate>
