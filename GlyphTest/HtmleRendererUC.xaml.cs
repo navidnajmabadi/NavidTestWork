@@ -26,8 +26,8 @@ namespace GlyphTest
         List<char> englishChar;
         List<string> wordList;
         List<string> Temp = new List<string>();
-        
-        
+       
+
         public string HtmlContent
         {
             get { return (string)GetValue(ExcelVisiblityProperty); }
@@ -54,20 +54,28 @@ namespace GlyphTest
         private string head;
         private void BuildBody()
         {
+            
+            int maxLength = 0;
             if (!string.IsNullOrEmpty(this.HtmlContent))
             {
+                double width = this.ActualWidth;
                 SeprateList(this.HtmlContent);
-                this.body = String.Join(String.Empty, wordList.ToArray());
+                string text = String.Join(String.Empty, wordList.ToArray());
+                int size = TextSize(text);
+                maxLength = ((size - (int)width) / 8)+1;
+                maxLength = text.Length - maxLength;
+                if (maxLength < 0)
+                    maxLength = (int)width;
+                this.body = TruncateLongString(String.Join(String.Empty, wordList.ToArray()), maxLength);         
             }
         }
 
         private void BuildHead()
         {
             double width = this.ActualWidth;
-            
+            int marginSize = 0;
             var align = (FlowDirection == FlowDirection.RightToLeft ? "right" : "left");
             var dir = (FlowDirection == FlowDirection.RightToLeft ? "rtl" : "ltr");
-
             var headHtml = $@"<head>
                <meta http-equiv=""Content-Type"" content=""text/html""; charset = ""UTF-8"" />
                <style type=""text/css"">
@@ -88,19 +96,11 @@ namespace GlyphTest
                         text-align: {align};
                         direction : {dir};
                         padding : 0px;
-                        
-                        margin-{align}:-1px;
+                        margin-{align}: {marginSize}px;
                         margin-top : -3px;
                         float :{align};
                     }}
-                .div2 {{
-                    white-space: nowrap; 
-                    width:{width}px; 
-                    
-                    text-overflow: ellipsis; 
-                }}
-	
-                  
+               
               </style>
 
               </head>";
@@ -111,7 +111,8 @@ namespace GlyphTest
 
         private string BuildHtml()
         {
-            return $@"<html>{head}<body><div class=""div2"">{body}</div></body></html>";
+            
+            return $@"<html>{head}<body>{body}</body></html>";
         }
 
         /// <summary>
@@ -131,7 +132,11 @@ namespace GlyphTest
                     wordSplitList.Add(" ");
 
                 else
+                {
                     wordSplitList.Add(word);
+                    wordSplitList.Add(" ");
+                }
+                    
 
             }
             reformWords(wordSplitList);
@@ -162,6 +167,12 @@ namespace GlyphTest
             wordList = new List<string>();
             for (int t = 0; t < wordSplit.Count; t++)
             {
+                if (t>0 && wordSplit[t]==" " && ( wordSplit[t-1]==" " || wordSplit[t-1]== "&nbsp;"))
+                {
+                    wordList.Add("&nbsp;");
+                    continue;
+                }
+
                 Boolean isNumberFlag = true;
                 Boolean isPersian = false;
                 persianChar = new List<char>();
@@ -203,19 +214,29 @@ namespace GlyphTest
                     {
                         if (englishChar.Count != 0)
                         {
-
-                        for (int j = 0; j < englishChar.Count; j++)
-                        {
-                            if (englishChar[j] <= 48 || englishChar[j] >= 58)
+                            string englishWord = new string(englishChar.ToArray());
+                            if (englishWord == "<mhstr123tag>")
                             {
-                                isNumberFlag = false;
-                                break;
+                                wordList.Add(englishWord);
+                                wordList.Add("&nbsp;");
                             }
-                        }
-                        if (isNumberFlag && dir != "ltr")
-                            englishChar.Reverse();
+                            if (englishWord == "</mhstr123tag>")
+                            {
+                                wordList.Add("&nbsp;");
+                                wordList.Add(englishWord);   
+                            }
+                            for (int j = 0; j < englishChar.Count; j++)
+                            {
+                                if (englishChar[j] <= 48 || englishChar[j] >= 58)
+                                {
+                                    isNumberFlag = false;
+                                    break;
+                                }
+                            }
+                            if (isNumberFlag && dir != "ltr")
+                                englishChar.Reverse();
 
-                        string englishWord = new string(englishChar.ToArray());
+                            englishWord = new string(englishChar.ToArray());
                             wordList.Add(englishWord);
                             englishChar.Clear();
                         }
@@ -283,7 +304,7 @@ namespace GlyphTest
                     string persianWord = new string(persianChar.ToArray());
                     wordList.Add(persianWord);
                 }
-                wordList.Add("&nbsp;");
+                
             }
             
         }
@@ -293,11 +314,35 @@ namespace GlyphTest
         /// <returns></returns>        
         private void UserControl_SizeChanged(object sender, SizeChangedEventArgs e)
         {
+            double width = this.ActualWidth;
+            
+            int maxLength = 0;
             if (!string.IsNullOrEmpty(this.HtmlContent))
             {
+                string text = String.Join(String.Empty, wordList.ToArray());
+                int size = TextSize(text);
                 BuildHead();
+                maxLength = ((size - (int)width) / 8) + 1;
+                maxLength = text.Length - maxLength;
+                if (maxLength < 0)
+                    maxLength = (int)width;
+                this.body = TruncateLongString(String.Join(String.Empty, wordList.ToArray()), maxLength);
                 this.HtmlPanel.Text = BuildHtml();
             }
         }
+        private static string TruncateLongString(string str,int maxLength)
+        {
+            
+            if (str.Length <= maxLength)
+                return str.Substring(0, Math.Min(str.Length, maxLength));
+            else
+                return str.Substring(0, Math.Min(str.Length, maxLength))+"...";
+        }
+
+        private int TextSize(string txt)
+        {
+            return System.Windows.Forms.TextRenderer.MeasureText(txt, new System.Drawing.Font(this.FontFamily.ToString(), (float)this.FontSize)).Width;   
+        }
+
     }
 }

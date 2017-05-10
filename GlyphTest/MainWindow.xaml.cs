@@ -44,7 +44,8 @@ namespace GlyphTest
             for (int i = 0; i < 1000 ; i++)
             {
                 var dataClass = new DataClass();
-                dataClass.Text = obj.HtmlStringParsing("<h1> تسfgت  </h1><p> متن <mhstr123tag> 12345678 </mhstr123tag> فارسی </p> <br> ");//obj.HtmlStringParsing( " <b>text</b>");
+                //dataClass.Text = obj.HtmlStringParsing("one <mhstr123tag>t</mhstr123tag>wo <mhstr123tag>t</mhstr123tag>ree four five six seven eigh<mhstr123tag>t</mhstr123tag> nine <mhstr123tag>t</mhstr123tag>en one <mhstr123tag>t</mhstr123tag>wo tree four five six seven eight nine ten one two tree four five six seven eight nine ten one two tree four five six seven eight nine ten one two tree four five six seven eight nine ten");//obj.HtmlStringParsing( " <b>text</b>");
+                dataClass.Text = obj.HtmlStringParsing("اول دوم سوم چهارم پنجم ششم هفتم هشتم نهم دهم");
                 //dataClass.Text = $@"<b>فارxyسی</b> اول    دوم    سوم     fo43uچهار   five  ششم    seven  هشeight88ت  nineده  یازدهeleven" +i;
                 //dataClass.Text = obj.Reform("first second thirs ");
                 //dataClass.Text1 = obj.Reform($"<b>فاHelloرسی</b>فاHelloرسی<b> فار123456789سی </b>  123456<b>A12BC34D56789</b> ");
