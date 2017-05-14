@@ -1,14 +1,18 @@
 ﻿using NBidi;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Documents;
 using System.Windows.Media;
 using System.Windows.Media.Media3D;
 using TheArtOfDev.HtmlRenderer.WPF;
+
 
 namespace GlyphTest
 {
@@ -25,8 +29,8 @@ namespace GlyphTest
         List<char> persianChar;
         List<char> englishChar;
         List<string> wordList;
-        List<string> Temp = new List<string>();
-       
+        private int offset = -3;
+
 
         public string HtmlContent
         {
@@ -54,22 +58,20 @@ namespace GlyphTest
         private string head;
         private void BuildBody()
         {
-            
+
             int maxLength = 0;
             if (!string.IsNullOrEmpty(this.HtmlContent))
             {
-                
+
                 double width = this.ActualWidth;
                 SeprateList(this.HtmlContent);
                 string text = String.Join(String.Empty, wordList.ToArray());
-                int count = text.Split(new string[] { "<mhstr123tag>" },StringSplitOptions.None).Length - 1;
-                int count2 = text.Split(new string[] { "</mhstr123tag>" }, StringSplitOptions.None).Length - 1;
                 int size = TextSize(text);
-                maxLength = ((size - (int)width) / 8)+1;
-                maxLength = (text.Length - maxLength);
-                if (maxLength < 0)
-                    maxLength = (int)width;
-                this.body = TruncateLongString(String.Join(String.Empty, wordList.ToArray()), maxLength);         
+                maxLength = (int)width / size - offset;
+                if (maxLength < 1 || size <= 0)
+                    maxLength = 1;
+                this.body = TruncateLongString(text, maxLength, fakeSpace, highlightTagOpen, highlightTagClose);
+                //this.body = text;
             }
         }
 
@@ -90,7 +92,7 @@ namespace GlyphTest
                  }}
              </style>
              <style>
-                 mhstr123tag{{
+                 m{{
                      background-color:yellow; 
                      font-weight: bold;
                  }}
@@ -98,26 +100,29 @@ namespace GlyphTest
                         font-family: ""B Nazanin""; 
                         text-align: {align};
                         direction : {dir};
-                        padding : 0px;
+                        padding : 5px;
                         margin-{align}: {marginSize}px;
-                        margin-top : -3px;
+                        margin-top : -2px;
                         float :{align};
                         width: {width}px;
+                        word-wrap: break-word;
                     }}
+                #text {{ width: {Width-5}px; overflow: hidden; white-space:nowrap; text-overflow: ""...""; }}
               </style>
 
               </head>";
 
-            head= headHtml;
+            head = headHtml;
         }
-
-
         private string BuildHtml()
         {
-            
+
             return $@"<html>{head}<body>{body}</body></html>";
         }
-
+        private List<int> fakeSpace = null;
+        private List<int> highlightTagOpen = null;
+        private List<int> highlightTagClose = null;
+        
         /// <summary>
         /// Get string and Seprate word by word and return List of Word
         /// </summary>
@@ -126,8 +131,34 @@ namespace GlyphTest
         private void SeprateList(string input)
         {
 
-            List<char> tempChar = new List<char>();
             List<string> wordSplitList = new List<string>();
+            highlightTagOpen = new List<int>();
+            highlightTagClose = new List<int>();
+            int invalidChar = 0;
+            fakeSpace = new List<int>();
+            for (int i = 0; i < input.Length - 1; i++)
+            {
+
+                if (input[i] == 32 && input[i + 1] == 32) //find Space After Space
+                {
+                    fakeSpace.Add(i + 1 - 2);
+                    //fakeSpace.Add(i + 1 - invalidChar);
+                    //invalidChar += 6;
+                }
+                if (input[i] == 60 && input[i + 1] == 'm') // find Tag <m> ('<'= 60)
+                {
+                    highlightTagOpen.Add(i);
+                    //highlightTagOpen.Add(i - invalidChar);
+                    //invalidChar += 3;
+                }
+                if (i < input.Length - 2)
+                    if (input[i] == 60 && input[i + 1] == '/' && input[i + 2] == 'm') // find Tag </m> ('<'= 60)
+                    {
+                        highlightTagClose.Add(i-2);
+                        //highlightTagClose.Add(i - invalidChar);
+                        //invalidChar += 4;
+                    }
+            }
             foreach (var word in input.Split(new string[] { " " }, StringSplitOptions.None))
             {
 
@@ -136,12 +167,15 @@ namespace GlyphTest
 
                 else
                 {
+                    if(word.Contains("</m>"))
+                        wordSplitList.RemoveRange(wordSplitList.Count - 1, 1);
                     wordSplitList.Add(word);
-                    wordSplitList.Add(" ");
+                    if(!word.Contains("<m>"))
+                        wordSplitList.Add(" ");
                 }
-                    
-
             }
+            if (wordSplitList.Count > 1)
+                wordSplitList.RemoveRange(wordSplitList.Count - 1, 1);
             reformWords(wordSplitList);
         }
 
@@ -170,7 +204,7 @@ namespace GlyphTest
             wordList = new List<string>();
             for (int t = 0; t < wordSplit.Count; t++)
             {
-                if (t>0 && wordSplit[t]==" " && ( wordSplit[t-1]==" " || wordSplit[t-1]== "&nbsp;"))
+                if (t > 0 && wordSplit[t] == " " && (wordSplit[t - 1] == " " || wordSplit[t - 1] == "&nbsp;"))
                 {
                     wordList.Add("&nbsp;");
                     continue;
@@ -203,8 +237,8 @@ namespace GlyphTest
                     {
                         if (persianChar.Count != 0)
                         {
-                            if(dir=="ltr" && isPersian)
-                              persianChar.Reverse();
+                            if (dir == "ltr" && isPersian)
+                                persianChar.Reverse();
                             string persianWord = new string(persianChar.ToArray());
                             wordList.Add(persianWord);
                             persianChar.Clear();
@@ -274,15 +308,15 @@ namespace GlyphTest
                 if (englishChar.Count != 0)
                 {
                     //englishChar.Reverse();
-                    for(int i = 0; i<englishChar.Count; i++)
+                    for (int i = 0; i < englishChar.Count; i++)
                     {
-                    
+
                         if ((englishChar[i] <= 48 || englishChar[i] >= 58))
                         {
                             isNumberFlag = false;
                             break;
                         }
-                        
+
                     }
                     if (isNumberFlag && dir != "ltr")
                         englishChar.Reverse();
@@ -297,9 +331,9 @@ namespace GlyphTest
                     string persianWord = new string(persianChar.ToArray());
                     wordList.Add(persianWord);
                 }
-                
+
             }
-            
+
         }
         /// <summary>
         /// Html Style and Header
@@ -308,33 +342,72 @@ namespace GlyphTest
         private void UserControl_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             double width = this.ActualWidth;
-            
+
             int maxLength = 0;
             if (!string.IsNullOrEmpty(this.HtmlContent))
             {
+
+                BuildHead();
+                //calculate siz of each char
                 string text = String.Join(String.Empty, wordList.ToArray());
                 int size = TextSize(text);
-                BuildHead();
-                maxLength = ((size - (int)width) / 8) + 1;
-                maxLength = (text.Length - maxLength) ;
-                if (maxLength < 0)
-                    maxLength = (int)width;
-                this.body = TruncateLongString(String.Join(String.Empty, wordList.ToArray()), maxLength);
+                maxLength = (int)width / size-offset ;
+
+                if (maxLength < 1 || size <= 0)
+                    maxLength = 1;
+                this.body = TruncateLongString(text, maxLength, fakeSpace, highlightTagOpen, highlightTagClose);
+
                 this.HtmlPanel.Text = BuildHtml();
             }
         }
-        private static string TruncateLongString(string str,int maxLength)
+
+        private static string TruncateLongString(string str, int charCount, List<int> fakeSpace, List<int> highlightTagOpen, List<int> highlightTagClose)
         {
-            
-            if (str.Length <= maxLength)
-                return str.Substring(0, Math.Min(str.Length, maxLength));
-            else
-                return str.Substring(0, Math.Min(str.Length, maxLength))+"...";
+            var highlightTagOpenCount = highlightTagOpen.Count(x => x < charCount) * 2;
+            charCount += highlightTagOpenCount;
+            var highlightTagCloseCount = highlightTagClose.Count(x => x < charCount) * 4;
+            charCount += highlightTagCloseCount;
+            int fakeSpaceCount = fakeSpace.Count(x => x < charCount) * 5;
+            charCount += fakeSpaceCount;
+            //for(int s=charCount; s>0; )
+            //{
+            if (str.Length > charCount && charCount > 1)
+                if (str.Substring(charCount - 1, 1) == " ")
+                {
+                    charCount--;
+                    //s--;
+                }
+            //    if (str.Length-6 > s)
+            //    {
+            //        if (str.Substring(s - 6, 6) == "&nbsp;")
+            //        {
+            //            charCount-=6;
+            //            s-=6;
+            //        }
+
+            //        if (str.Substring(s - 6, 6) != "&nbsp;" && str.Substring(s - 1, 1) != " ")
+            //            break;
+            //    }
+
+            //}
+            if (str.Length <= charCount)
+                    return str.Substring(0, Math.Min(str.Length, charCount));
+                else
+                    return str.Substring(0, Math.Min(str.Length, charCount)) + "...";
+
         }
 
         private int TextSize(string txt)
         {
-            return System.Windows.Forms.TextRenderer.MeasureText(txt, new System.Drawing.Font(this.FontFamily.ToString(), (float)this.FontSize)).Width;   
+            var res = Regex.Replace(txt, @"&nbsp;", " ");
+            res = Regex.Replace(res, @"<m>|</m>", "");
+            List<double> charSize = new List<double>();
+            float widthSizeOfText = System.Windows.Forms.TextRenderer.MeasureText(res, new System.Drawing.Font(this.FontFamily.ToString(), (float)this.FontSize)).Width;
+            FormattedText formatted = new FormattedText(res, CultureInfo.CurrentCulture,
+                System.Windows.FlowDirection.LeftToRight, new Typeface(this.FontFamily.ToString()), (float)this.FontSize, Brushes.Black);
+            
+            return (int)widthSizeOfText / res.Length;
+
         }
 
     }
